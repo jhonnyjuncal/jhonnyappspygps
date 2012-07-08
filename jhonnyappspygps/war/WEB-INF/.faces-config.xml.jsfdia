@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::0" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_inicio::#pages#principal.xhtml"
+    NAME="output" PATH="/pages/principal.xhtml"
+    TARGET="rules:#pages#principal.xhtml" TITLE="pagina_inicio" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::1" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_mapa::#pages#secure#mapa.xhtml"
+    NAME="output" PATH="/pages/secure/mapa.xhtml"
+    TARGET="rules:#pages#secure#mapa.xhtml" TITLE="pagina_mapa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::2" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_cuenta::#pages#secure#cuenta.xhtml"
+    NAME="output" PATH="/pages/secure/cuenta.xhtml"
+    TARGET="rules:#pages#secure#cuenta.xhtml" TITLE="pagina_cuenta" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::3" SHAPE="32,353,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::3" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_contacto::#pages#contacto.xhtml"
+    NAME="output" PATH="/pages/contacto.xhtml"
+    TARGET="rules:#pages#contacto.xhtml" TITLE="pagina_contacto" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::4" SHAPE="32,465,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::4" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_registro::#pages#registro.xhtml"
+    NAME="output" PATH="/pages/registro.xhtml"
+    TARGET="rules:#pages#registro.xhtml" TITLE="pagina_registro" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::5" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::5" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_login::#pages#login.xhtml"
+    NAME="output" PATH="/pages/login.xhtml"
+    TARGET="rules:#pages#login.xhtml" TITLE="pagina_login" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::6" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::6" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_productos::#pages#productos.xhtml"
+    NAME="output" PATH="/pages/productos.xhtml"
+    TARGET="rules:#pages#productos.xhtml" TITLE="pagina_productos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::7" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::7" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_enlaces::#pages#enlaces.xhtml"
+    NAME="output" PATH="/pages/enlaces.xhtml"
+    TARGET="rules:#pages#enlaces.xhtml" TITLE="pagina_enlaces" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::8" SHAPE="32,913,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::8" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_politicas::#pages#politicas.xhtml"
+    NAME="output" PATH="/pages/politicas.xhtml"
+    TARGET="rules:#pages#politicas.xhtml" TITLE="pagina_politicas" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules::9" SHAPE="32,1025,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::9" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_terminos::#pages#terminos.xhtml"
+    NAME="output" PATH="/pages/terminos.xhtml"
+    TARGET="rules:#pages#terminos.xhtml" TITLE="pagina_terminos" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#politicas.xhtml"
+  PATH="/pages/politicas.xhtml" SHAPE="240,929,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#enlaces.xhtml"
+  PATH="/pages/enlaces.xhtml" SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#registro.xhtml"
+  PATH="/pages/registro.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#mapa.xhtml"
+  PATH="/pages/secure/mapa.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#productos.xhtml"
+  PATH="/pages/productos.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#principal.xhtml"
+  PATH="/pages/principal.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#terminos.xhtml"
+  PATH="/pages/terminos.xhtml" SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#contacto.xhtml"
+  PATH="/pages/contacto.xhtml" SHAPE="240,369,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#secure#cuenta.xhtml"
+  PATH="/pages/secure/cuenta.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#login.xhtml" PATH="/pages/login.xhtml"
+  SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

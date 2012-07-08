@@ -1,0 +1,258 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+	
+	<html xml:lang="es" lang="es">
+		<head>
+			<title>ROUTING - GPS</title>
+			<meta http-equiv="Cache-Control" content="max-age=0" />
+			<meta http-equiv="Expires" content="-1" />	
+			<meta content="text/html; charset=UTF-8" http-equiv="content-type" name="tipo_contenido" /> 
+			<link href="../css/estilos.css" rel="stylesheet" type="text/css" />
+			<link href="#{facesContext.externalContext.requestContextPath}/images/favicon.ico" rel="shortcut icon"/>
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/funciones.js" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/md5.js" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/prototype.js" />
+			<script type="text/javascript">
+				Event.observe(window, 'load', function(){MM_preloadImages('../images/but_1_act.jpg','../images/but_2_act.jpg','../images/but_3_act.jpg',
+						'../images/but_4_act.jpg','../images/but_5_act.jpg','../images/but_6_act.jpg');});
+			</script>
+		</head>
+	
+		<body id="page1">
+			<h:form id="formularioLogin" onsubmit="return validateForm(this)" ajaxSubmit="true">
+				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
+				<ui:include src="../pages/plantillas/progress.xhtml" />
+				<table style="height:700px;">
+					<tr>
+						<td id="row1" align="center">
+							<table style="width:766px;">
+								<tr>
+									<td id="header">
+										<table>
+											<tr>
+												<td class="row1">
+													<table class="auto">
+														<tr>
+															<td class="c1"></td>
+															<td class="c2">
+																<span class="date">
+																	<h:outputText value="#{principalBean.fechaActual}" />
+																</span>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td class="row2">
+													<table class="auto">
+														<tr>
+															<td>
+																<a href="#">
+																	<img alt="" src="../images/logo.jpg" style="margin: 35px 40px 0 64px;" />
+																</a>
+															</td>
+															<td>
+																<img alt="" src="../images/slogan.jpg" style="margin:58px 0 0 0;" />
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td id="header_menu">
+										<table>
+											<tr>
+												<td class="c1"></td>
+												<td class="c2">
+													<!-- NAVEGA INICIO -->
+													<a4j:commandLink action="#{loginBean.navegaInicio}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_1','','../images/but_1_act.jpg',1)" status="generalStatus">
+														<img alt="" src="../images/but_1.jpg" name="r_1" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA PRODUCTOS -->
+													<a4j:commandLink action="#{loginBean.navegaProductos}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_2','','../images/but_2_act.jpg',1)" status="generalStatus">
+														<img alt="" src="../images/but_2.jpg" name="r_2" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA CUENTA -->
+													<a4j:commandLink action="#{loginBean.navegaCuenta}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_3','','../images/but_3_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario != null}" status="generalStatus">
+														<img alt="" src="../images/but_3.jpg" name="r_3" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink id="linkCuentaNo" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_3','','../images/but_3_act.jpg',1)" status="generalStatus"
+																rendered="#{usuarioBean.usuario == null}" actionListener="#{loginBean.muestraMensajeLoginNecesario}" oncomplete="showPanelMensajeError()">
+														<img alt="" src="../images/but_3.jpg" name="r_3" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA MAPA -->
+													<a4j:commandLink action="#{loginBean.navegaMapa}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_4','','../images/but_4_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario != null}" status="generalStatus">
+														<img alt="" src="../images/but_4.jpg" name="r_4" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink id="linkMapaNo" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_4','','../images/but_4_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario == null}" actionListener="#{loginBean.muestraMensajeLoginNecesario}" oncomplete="showPanelMensajeError()">
+														<img alt="" src="../images/but_4.jpg" name="r_4" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA CONTACTO -->
+													<a4j:commandLink action="#{loginBean.navegaContacto}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_5','','../images/but_5_act.jpg',1)" status="generalStatus">
+														<img alt=""  src="../images/but_5.jpg" name="r_5" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA ENLACES -->
+													<a4j:commandLink action="#{loginBean.navegaEnlaces}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_6','','../images/but_6_act.jpg',1)" status="generalStatus">
+														<img  alt="" src="../images/but_6.jpg" name="r_6" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+												</td>
+												<td class="c3"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td id="row2" align="center">
+							<table style="width:766px;" align="center">
+								<tr>
+									<td id="content">
+										<table class="auto">
+											<tr>
+												<td class="col1">
+													<fieldset style="width:100%; border:none;">
+														<ul>
+															<li style="padding:10px">
+																<h2><h:outputText value="#{men.login_mensaje1}" /></h2>
+															</li>
+															<li style="padding:10px">
+																<h:outputText value="#{men.login_introduce_datos}" />
+															</li>
+															<li style="width:100%; margin:3px 0 3px 20px;">
+																<ul>
+																	<li style="width:65px; float:left;">
+																		<label><h:outputText value="#{men.login_datos_usuario}" /></label>
+																	</li>
+																	<li>
+																		<h:inputText id="nombreUsuario" style="margin-left:5px; width:250px" value="#{loginBean.nombreUsuario}" />
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 20px;">
+																<ul>
+																	<li style="width:65px; float:left;">
+																		<label><h:outputText value="#{men.login_datos_pass1}" /></label>
+																	</li>
+																	<li>
+																		<h:inputSecret id="contra" style="margin-left:5px; width:250px" />
+																		<h:inputHidden id="encPassw" value="#{loginBean.passwordUsuario}"/>
+																	</li>
+																</ul>
+															</li>
+															<h:graphicImage url="../images/spacer.gif" style="width:1px; height:10px;" />
+														</ul>
+														<center>
+															<a4j:commandButton id="botonAcceso" value="#{men.login_boton_acceso}" actionListener="#{loginBean.validaDatosAcceso}" 
+																	status="generalStatus" oncomplete="showPanelMensajeError()" />
+														</center>
+													</fieldset>
+													<div class="clear"></div>
+													<div class="line_hor">
+														<img alt="" src="../images/spacer.gif" width="1" height="1" />
+													</div>
+													<ul>
+														<li><a href="#"><h:outputText value="#{men.login_link_olvido_pass}" /></a></li>
+														<li><a href="#"><h:outputText value="#{men.login_link_olvido_user}" /></a></li>
+														<li><a href="#"><h:outputText value="#{men.login_link_borrar_user}" /></a></li>
+														<li><a href="#"><h:outputText value="#{men.login_link_suplantacion}" /></a></li>
+													</ul>
+													<img alt="" src="../images/spacer.gif" width="1" height="6" /><br />
+												</td>
+												<td class="col2">
+													<div style="height:400px; ">
+														<ul>
+															<li style="padding:10px;">
+																<h2><h:outputText value="#{men.login_mensaje2}" /></h2>
+															</li>
+															<li style="padding:10px">
+																<h:outputText value="#{men.login_mensaje_informativo}" />
+															</li>
+														</ul>
+														<center>
+															<a4j:commandButton id="botonRegistro" value="Registro Gratuito"
+																	action="#{loginBean.navegaRegistro}" status="generalStatus" />
+														</center>
+				                             		</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="height:1px">
+							<img alt="" src="../images/spacer.gif" width="1" height="1" />
+						</td>
+					</tr>
+					<tr>
+						<td id="row3" align="center">
+							<table style="width:766px;" align="center">
+								<tr>
+									<td id="footer">
+										<table class="auto">
+											<tr>
+												<td class="c1">
+													<div style="margin:21px 172px 0 10px; width:350px">
+														<span class="date">JHONNY @2012 | </span> 
+														<a4j:commandLink action="#{enlacesBean.navegaPoliticas}" status="generalStatus"><h:outputText value="#{men.general_politicas}" /></a4j:commandLink>
+														<span> | </span>
+														<a4j:commandLink action="#{enlacesBean.navegaTerminos}" status="generalStatus"><h:outputText value="#{men.general_terminos}" /></a4j:commandLink>
+													</div>
+												</td>
+												<td class="c2">
+													<div style="margin:22px 51px 21px 38px;">
+														<img alt="" src="../images/phone.jpg" />
+													</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</h:form>
+			
+			<!-- MODALPANEL PARA LOS MENSAJES DE ERROR -->
+			<rich:modalPanel id="panelError" autosized="true" width="300" modal="true">
+				<f:facet name="header">
+		 					<h:outputText value="#{men.tituloPanelError}"/>
+				</f:facet>
+				
+				<a4j:outputPanel ajaxRendered="true">
+					<h:inputHidden id="mensajeErrorEnPagina" value="#{loginBean.tieneMensajesError}" />
+				</a4j:outputPanel>
+				
+				<rich:messages/>
+				
+				<a4j:outputPanel id="panelAceptar" layout="block">
+		 			<div align="center" style="margin-top:20px;">
+						<a4j:commandButton id="botonAceptar" value="#{men.general_aceptar}" status="generalStatus" />
+						<rich:componentControl for="panelError" attachTo="botonAceptar" operation="hide" event="onclick" />
+					</div>
+				</a4j:outputPanel>
+			</rich:modalPanel>
+		</body>
+	</html>  
+</ui:composition>

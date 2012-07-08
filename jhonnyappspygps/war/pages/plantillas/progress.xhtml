@@ -1,0 +1,19 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      			xmlns:ui="http://java.sun.com/jsf/facelets"
+    			xmlns:h="http://java.sun.com/jsf/html"
+    			xmlns:f="http://java.sun.com/jsf/core"
+    			xmlns:a4j="http://richfaces.org/a4j"
+    			xmlns:rich="http://richfaces.org/rich">
+
+	<div id="box">
+		<rich:popupPanel id="progressPanel" autosized="true" modal="true">
+			<div id="cntProgreso">
+				<a4j:status id="generalStatus" onstart="Richfaces.showModalPanel('progressPanel'); window.document.getElementById('box').style.display='block'; navegando=1;" onstop="Richfaces.hideModalPanel('progressPanel'); window.document.getElementById('box').style.display='none';">
+					<f:facet name="start">
+						<h:graphicImage value="/images/bigrotation2.gif"/>
+					</f:facet>
+				</a4j:status>
+			</div> 	
+		</rich:popupPanel>
+	</div>			
+</ui:composition>

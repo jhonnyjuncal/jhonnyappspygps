@@ -1,0 +1,267 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:m="http://code.google.com/p/gmaps4jsf/"
+      xmlns:rich="http://richfaces.org/rich">
+	
+	<html xml:lang="es" lang="es">
+		<head>
+			<title>ROUTING - GPS</title>
+			<meta http-equiv="Cache-Control" content="max-age=0" />
+			<meta http-equiv="Expires" content="-1" />
+			<meta content="text/html; charset=UTF-8" http-equiv="content-type" name="tipo_contenido" />
+			<link href="#{facesContext.externalContext.requestContextPath}/images/favicon.ico" rel="shortcut icon"/>
+			<link href="../../css/estilos.css" rel="stylesheet" type="text/css" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/funciones.js" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/prototype.js" />
+			<script type="text/javascript">
+				Event.observe(window, 'load', function(){MM_preloadImages('../../../images/but_1_act.jpg','../../../images/but_2_act.jpg','../../../images/but_3_act.jpg',
+						'../../../images/but_4_act.jpg','../../../images/but_5_act.jpg','../../../images/but_6_act.jpg');});
+			</script>
+			<style>
+				.optionList{
+					height:30px;
+				}
+			</style>
+		</head>
+	
+		<body id="page1">
+			<h:form id="formularioMapa" ajaxSubmit="true">
+				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
+				<ui:include src="../../pages/plantillas/progress.xhtml" />
+				<table style="height:700px;">
+					<tr>
+						<td id="row1" align="center">
+							<table style="width:766px;">
+								<tr>
+									<td id="header">
+										<table>
+											<tr>
+												<td class="row1">
+													<table class="auto">
+														<tr>
+															<td class="c1"></td>
+															<td class="c2">
+																<span class="date">
+																	<h:outputText value="#{principalBean.fechaActual}" />
+																</span>
+															</td>
+															<td class="c3">
+																<a4j:commandLink value="#{usuarioBean.usuario.nombreUsuario}" rendered="#{usuarioBean.usuario != null}" 
+																		action="#{mapaBean.navegaCuenta}" status="generalStatus" />
+																<a4j:commandLink value="#{men.cerrar_sesion}" rendered="#{usuarioBean.usuario != null}" style="margin-left:10px; " 
+																			action="#{mapaBean.navegaInicio}" actionListener="#{mapaBean.cierraSesion}" status="generalStatus" />
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td class="row2">
+													<table class="auto">
+														<tr>
+															<td>
+																<a href="#">
+																	<img alt="" src="../../images/logo.jpg" style="margin: 35px 40px 0 64px;" />
+																</a>
+															</td>
+															<td>
+																<img alt="" src="../../images/slogan.jpg" style="margin:58px 0 0 0;" />
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td id="header_menu">
+										<table>
+											<tr>
+												<td class="c1"></td>
+												<td class="c2">
+													<a4j:commandLink action="#{mapaBean.navegaInicio}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_1','','../../images/but_1_act.jpg',1)" status="generalStatus">
+														<img alt="" src="../../images/but_1.jpg" name="r_1" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink action="#{mapaBean.navegaProductos}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_2','','../../images/but_2_act.jpg',1)" status="generalStatus">
+														<img alt="" src="../../images/but_2.jpg" name="r_2" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink action="#{mapaBean.navegaCuenta}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_3','','../../images/but_3_act.jpg',1)" status="generalStatus">
+														<img  alt="" src="../../images/but_3.jpg" name="r_3" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink action="#{mapaBean.navegaMapa}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_4','','../../images/but_4_act.jpg',1)" status="generalStatus">
+														<img  alt="" src="../../images/but_4_act.jpg" name="r_4" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink action="#{mapaBean.navegaContacto}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_5','','../../images/but_5_act.jpg',1)" status="generalStatus">
+														<img alt=""  src="../../images/but_5.jpg" name="r_5" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink action="#{mapaBean.navegaEnlaces}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_6','','../../images/but_6_act.jpg',1)" status="generalStatus">
+														<img  alt="" src="../../images/but_6.jpg" name="r_6" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+												</td>
+												<td class="c3"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td id="row2" align="center">
+							<table style="width:766px;" align="center">
+								<tr>
+									<td id="content">
+										<!-- PANEL CON LOS DATOS DE CADA COORDENADA -->
+										<rich:dataTable id="tablaCoordenadas" cellpadding="0" cellspacing="0" style="height:5px; "  
+														value="#{mapaBean.mapaCoordenadas}" var="coor" rowKeyVar="num">
+											<f:facet name="header"><h:outputText value="Coordenadas actualmente almacenadas" /></f:facet>
+											<rich:column style="height:5px" id="colNumero">
+												<f:facet name="header"><h:outputText value="numero" /></f:facet>
+												<h:outputText value="#{num}" />
+											</rich:column>
+											<rich:column style="height:5px" id="colLatitud">
+												<f:facet name="header"><h:outputText value="latitud" /></f:facet>
+												<h:outputText value="#{coor.latitud}" />
+											</rich:column>
+											<rich:column style="height:5px" id="colLongitud">
+												<f:facet name="header"><h:outputText value="longitud" /></f:facet>
+												<h:outputText value="#{coor.longitud}" />
+											</rich:column>
+											<rich:column style="height:5px" id="colFecha">
+												<f:facet name="header"><h:outputText value="fecha" /></f:facet>
+												<h:outputText value="#{coor.fecha}" />
+											</rich:column>
+											<rich:column style="height:5px" id="colHora">
+												<f:facet name="header"><h:outputText value="hora" /></f:facet>
+												<h:outputText value="#{coor.hora}" />
+											</rich:column>
+											<rich:column style="height:5px" id="colEnlace">
+												<f:facet name="header" />
+												<div align="center">
+													<a4j:commandLink actionListener="#{mapaBean.puntoSeleccionado}" ajaxSingle="true" title="titulo"
+																status="generalStatus" oncomplete="showPanelCoordenada()">
+														<h:graphicImage value="/images/ico_edit.png" style="border:none; " height="15px" width="15px" />
+													</a4j:commandLink>
+												</div>
+											</rich:column>
+										</rich:dataTable>
+										
+										<a4j:outputPanel style="float:right; width:100%; ">
+											<a4j:commandButton value="Imprimir en PDF" action="#{mapaBean.imprimirPDF}" style="float:right" status="generalStatus" />
+											<a4j:commandButton value="Guardar como..." action="#{mapaBean.guardarComo}" style="float:right" status="generalStatus" />
+										</a4j:outputPanel>
+										
+										<!-- PANEL DEL MAPA -->
+										<rich:panel id="panelGoogleMap" style="width:762px">
+											<h:form id="formGmap">
+												<rich:gmap gmapVar="map" zoom="#{mapaBean.mapaZoom}" style="width:100%; height:400px;" 
+															mapType="G_HYBRID_MAP"
+															gmapKey="#{mapaBean.mapaKey}" lat="#{mapaBean.mapaCoorSeleccionada.latitud}"
+															lng="#{mapaBean.mapaCoorSeleccionada.longitud}" id="gmap" 
+															oninit="addMarkerToMap1('#{mapaBean.arrayCoordenadas}')" >
+												</rich:gmap>
+											</h:form>
+										</rich:panel>
+										
+										<!-- PANEL DE CONTROL DEL MAPA -->
+										<rich:panel id="panelControlesMapa">
+											<a4j:facet name="header">
+												<h:outputText value="#{men.mapa_controles_mapa}" />
+											</a4j:facet>
+											<h:form id="formControlesMapa">
+												<h:panelGrid style="width:100%">
+													<h:panelGroup style="width:100%">
+														<rich:column style="width:30%; padding:5px;" id="colContrles">
+															<h:outputText value="#{men.mapa_titulo_controles}" /><br />
+															<a href="javascript: void 0" onclick="map.hideControls()"
+																	style="margin-left:5px"><h:outputText value="#{men.mapa_controles_ocultar}" /></a>
+															<a href="javascript: void 0" onclick="map.showControls()"
+																	style="margin-left:5px"><h:outputText value="#{men.mapa_controles_mostrar}" /></a><br />
+														</rich:column>
+														<rich:column style="width:40%; padding:5px;" id="colZoom">
+															<h:outputText value="#{men.mapa_controles_zoom}" />
+															<rich:inputNumberSlider id="zoom" showInput="false" 
+																	minValue="#{mapaBean.mapaZoomMinimo}" maxValue="#{mapaBean.mapaZoomMaximo}"
+																	value="#{mapaBean.mapaZoom}" onchange="map.setZoom(this.value)">
+																<a4j:actionparam name="mapaZoom" assignTo="#{mapaBean.mapaZoom}" />
+															</rich:inputNumberSlider>
+														</rich:column>
+														<rich:column style="width:30%; padding:5px;" id="colTipo">
+															<h:outputText value="#{men.mapa_controles_tipo}" /><br />
+															<h:panelGroup>
+																<a href="javascript: void 0" onclick="map.setMapType(G_NORMAL_MAP)" 
+																		style="margin-right:5px"><h:outputText value="#{men.mapa_controles_tipo_normal}" /></a>
+																<a href="javascript: void 0" onclick="map.setMapType(G_SATELLITE_MAP)"
+																		style="margin-right:5px"><h:outputText value="#{men.mapa_controles_tipo_satelite}" /></a>
+																<a href="javascript: void 0" onclick="map.setMapType(G_HYBRID_MAP)"
+																		style="margin-right:5px"><h:outputText value="#{men.mapa_controles_tipo_hibrido}" /></a><br/>
+															</h:panelGroup>
+														</rich:column>
+													</h:panelGroup>
+												</h:panelGrid>
+											</h:form>
+										</rich:panel>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="height:1px">
+							<img alt="" src="../../images/spacer.gif" width="1" height="1" />
+						</td>
+					</tr>
+					<tr>
+						<td id="row3" align="center">
+							<table style="width:766px;" align="center">
+								<tr>
+									<td id="footer">
+										<table class="auto">
+											<tr>
+												<td class="c1">
+													<div style="margin:21px 172px 0 10px; width:350px">
+														<span class="date">JHONNY @2012 | </span> 
+														<a4j:commandLink action="#{mapaBean.navegaPoliticas}" status="generalStatus"><h:outputText value="#{men.general_politicas}" /></a4j:commandLink>
+														<span> | </span>
+														<a4j:commandLink action="#{mapaBean.navegaTerminos}" status="generalStatus"><h:outputText value="#{men.general_terminos}" /></a4j:commandLink>
+													</div>
+												</td>
+												<td class="c2">
+													<div style="margin:22px 51px 21px 38px;">
+														<img alt="" src="../../images/phone.jpg" />
+													</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</h:form>
+			
+			<!-- MODALPANEL PARA LOS MENSAJES DE ERROR -->
+			<rich:popupPanel id="panelCoordenadaSeleccionada" autosized="true" width="300" modal="true">
+				<f:facet name="header">
+   					<h:outputText value="#{men.tituloPanelError}"/>
+				</f:facet>
+				<a4j:outputPanel id="panelCoordenadas" layout="block">
+   					<ul>
+   						<li style="list-style:none; ">
+   							<h:outputText value="DESCRPCION DE LA COORDENADA SELECCIONADA" />
+   						</li>
+   						<li style="margin-left:65px; margin-top:10px; list-style:none; ">
+							<a4j:commandButton id="botonAceptar" value="#{men.general_aceptar}" />
+							<rich:componentControl for="panelCoordenadaSeleccionada" attachTo="botonAceptar" operation="hide" event="onclick" />
+						</li>
+					</ul>
+				</a4j:outputPanel>
+			</rich:popupPanel>
+		</body>
+	</html>  
+</ui:composition>

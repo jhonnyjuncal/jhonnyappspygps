@@ -1,0 +1,263 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+	
+	<html xml:lang="es" lang="es">
+		<head>
+			<title>ROUTING - GPS</title>
+			<meta http-equiv="Cache-Control" content="max-age=0" />
+			<meta http-equiv="Expires" content="-1" />
+			<meta content="text/html; charset=UTF-8" http-equiv="content-type" name="tipo_contenido" />
+			<link href="#{facesContext.externalContext.requestContextPath}/images/favicon.ico" rel="shortcut icon"/>
+			<link href="../css/estilos.css" rel="stylesheet" type="text/css" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/funciones.js" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/prototype.js" />
+			<script type="text/javascript">
+				Event.observe(window, 'load', function(){MM_preloadImages('../images/but_1_act.jpg','../images/but_2_act.jpg','../images/but_3_act.jpg',
+						'../images/but_4_act.jpg','../images/but_5_act.jpg','../images/but_6_act.jpg');});
+			</script>
+		</head>
+	
+		<body id="page1">
+			<h:form id="formularioContacto" ajaxSubmit="true">
+				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
+				<ui:include src="../pages/plantillas/progress.xhtml" />
+				<table style="height:700px;">
+					<tr>
+						<td id="row1" align="center">
+							<table style="width:766px;">
+								<tr>
+									<td id="header">
+										<table>
+											<tr>
+												<td class="row1">
+													<table class="auto">
+														<tr>
+															<td class="c1"></td>
+															<td class="c2">
+																<h:outputText value="#{contactoBean.fechaActual}" />
+															</td>
+															<td class="c3">
+																<a4j:commandLink value="#{men.principal_login_usuario}" rendered="#{usuarioBean.usuario == null}" 
+																			action="#{contactoBean.navegaLogin}" status="generalStatus" />
+																<a4j:commandLink value="#{usuarioBean.usuario.nombreUsuario}" rendered="#{usuarioBean.usuario != null}" 
+																			action="#{contactoBean.navegaCuenta}" status="generalStatus" />
+																<a4j:commandLink value="#{men.cerrar_sesion}" rendered="#{usuarioBean.usuario != null}" style="margin-left:10px; " 
+																			action="#{contactoBean.navegaInicio}" actionListener="#{contactoBean.cierraSesion}" status="generalStatus" />
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td class="row2">
+													<table class="auto">
+														<tr>
+															<td>
+																<a href="#">
+																	<img alt="" src="../images/logo.jpg" style="margin: 35px 40px 0 64px;" />
+																</a>
+															</td>
+															<td>
+																<img alt="" src="../images/slogan.jpg" style="margin:58px 0 0 0;" />
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td id="header_menu">
+										<table>
+											<tr>
+												<td class="c1"></td>
+												<td class="c2">
+													<!-- NAVEGA INICIO -->
+													<a4j:commandLink action="#{contactoBean.navegaInicio}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_1','','../images/but_1_act.jpg',1)" status="generalStatus">
+														<img alt="" src="../images/but_1.jpg" name="r_1" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA PRODUCTOS -->
+													<a4j:commandLink action="#{contactoBean.navegaProductos}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_2','','../images/but_2_act.jpg',1)" status="generalStatus">
+														<img alt="" src="../images/but_2.jpg" name="r_2" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA CUENTA -->
+													<a4j:commandLink action="#{contactoBean.navegaCuenta}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_3','','../images/but_3_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario != null}" status="generalStatus">
+														<img alt="" src="../images/but_3.jpg" name="r_3" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink id="linkCuentaNo" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_3','','../images/but_3_act.jpg',1)" status="generalStatus"
+																rendered="#{usuarioBean.usuario == null}" actionListener="#{contactoBean.muestraMensajeLoginNecesario}" oncomplete="showPanelMensajeError()">
+														<img alt="" src="../images/but_3.jpg" name="r_3" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA MAPA -->
+													<a4j:commandLink action="#{contactoBean.navegaMapa}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_4','','../images/but_4_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario != null}" status="generalStatus">
+														<img alt="" src="../images/but_4.jpg" name="r_4" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink id="linkMapaNo" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_4','','../images/but_4_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario == null}" actionListener="#{contactoBean.muestraMensajeLoginNecesario}" oncomplete="showPanelMensajeError()">
+														<img alt="" src="../images/but_4.jpg" name="r_4" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA CONTACTO -->
+													<a4j:commandLink action="#{contactoBean.navegaContacto}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_5','','../images/but_5_act.jpg',1)" status="generalStatus">
+														<img alt=""  src="../images/but_5_act.jpg" name="r_5" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA ENLACES -->
+													<a4j:commandLink action="#{contactoBean.navegaEnlaces}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_6','','../images/but_6_act.jpg',1)" status="generalStatus">
+														<img  alt="" src="../images/but_6.jpg" name="r_6" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+												</td>
+												<td class="c3"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td id="row2" align="center">
+							<table style="width:766px;" align="center">
+								<tr>
+									<td id="content">
+										<table class="auto">
+											<tr>
+												<td class="col1">
+													<img class="img_indent" alt="" src="../images/6_p1.jpg" align="left" />
+													<strong><h:outputText value="#{men.contacto_direccion1}" /><br />
+													<h:outputText value="#{men.contacto_direccion2}" /></strong><br />
+													<img alt="" src="../images/spacer.gif" width="1" height="60px" /><br />
+													<strong><h:outputText value="#{men.contacto_mail_preguntas} " /></strong>
+													<h:outputText value="correo_empresa@gmail.com" /><br />
+													<strong><h:outputText value="#{men.contacto_mail_sugerencias} " /></strong>
+													<h:outputText value="correo_empresa@gmail.com" /><br />
+													<strong><h:outputText value="#{men.contacto_mail_reclamaciones} " /></strong>
+													<h:outputText value="correo_empresa@gmail.com" /><br />
+													<div class="line_hor">
+														<img alt="" src="images/spacer.gif" width="1" height="1" />
+													</div>
+													<strong>Envianos un correo electronico.</strong> A traves de este formulario podras enviarnos un correo
+													electronico con tu consulta, duda o sugerencia. Estaremos encantados de contestar a vuestras peticiones.
+													Si tienes algun problema o queja con respecto al servicio, tambien nos las podeis hacer llegar a traves
+													de este canal.<br/>
+													<img alt="" src="../images/spacer.gif" width="1" height="18" /><br />
+													<form id="form1" action="" enctype="multipart/form-data" name="form1">
+														<table class="auto">
+															<tr>
+																<td style="padding-right:8px; ">
+																	<h:selectOneMenu value="#{contactoBean.idTipoCorreoSeleccionado}" style="width:170px">
+							  											<f:selectItems value="#{contactoBean.tiposCorreo}" />
+																	</h:selectOneMenu>
+																	<img alt="" src="../images/spacer.gif" width="1" height="10" /><br />
+																	<div class="form">
+																		<h:inputText value="#{contactoBean.nombreContacto}" />
+																	</div>
+																	<div class="form">
+																		<h:inputText value="#{contactoBean.emailContacto}" label="texto" title="hola" />
+																	</div>
+																</td>
+																<td style="padding-left:11px;">
+																	<h:inputTextarea value="#{contactoBean.mensajeContacto}" style="height:77px; width:230px" 
+																				cols="20" rows="10">Message:</h:inputTextarea>
+																</td>
+															</tr>
+														</table>
+														<div style="text-align:right; margin:2px 14px 0 0;">
+															<a class="link1" href="#" onclick="document.getElementById('form1').reset()">reset  </a>      
+															<a class="link1" href="#" onclick="document.getElementById('form1').submit()">submit</a>
+														</div>
+													</form>
+												</td>
+												<td class="col2">
+													<div class="scroll" style="height:250px;">
+				                             			<div style="height:400px; ">
+													  		<strong>Preguntas</strong><br />
+															<img alt="" src="../images/spacer.gif" width="1" height="3" /><br />
+															Estaremos encantados de responder todas vuestras inquietudes. En plazo maximo de 24 horas le responderemos.<br />
+															<br />
+															<strong>Reclamaciones</strong><br />
+															<img alt="" src="../images/spacer.gif" width="1" height="3" /><br />
+															Si tiene algun problema con la aplicacion web o la aplicacion android, por favor, no dude en ponerse
+															en contacto con nosotros, le solucionaremos su problema lo mas rapido posible.<br />
+															<br />
+															<strong>Reclamaciones</strong><br />
+															<img alt="" src="../images/spacer.gif" width="1" height="3" /><br />
+															Si tiene algun problema con la aplicacion web o la aplicacion android, por favor, no dude en ponerse
+															en contacto con nosotros, le solucionaremos su problema lo mas rapido posible.<br />
+				                             			</div>
+											    	</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="height:1px;">
+							<img alt="" src="../images/spacer.gif" width="1" height="1" />
+						</td>
+					</tr>
+					<tr>
+						<td id="row3" align="center">
+							<table style="width:766px;" align="center">
+								<tr>
+									<td id="footer">
+										<table class="auto">
+											<tr>
+												<td class="c1">
+													<div style="margin:21px 172px 0 10px; width:350px">
+														<span class="date">JHONNY @2012 | </span> 
+														<a4j:commandLink action="#{contactoBean.navegaPoliticas}" status="generalStatus"><h:outputText value="#{men.general_politicas}" /></a4j:commandLink>
+														<span> | </span>
+														<a4j:commandLink action="#{contactoBean.navegaTerminos}" status="generalStatus"><h:outputText value="#{men.general_terminos}" /></a4j:commandLink>
+													</div>
+												</td>
+												<td class="c2">
+													<div style="margin:22px 51px 21px 38px;">
+														<img alt="" src="../images/phone.jpg" />
+													</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</h:form>
+			
+			<!-- MODALPANEL PARA LOS MENSAJES DE ERROR -->
+			<rich:popupPanel id="panelError" autosized="true" width="300" modal="true">
+				<f:facet name="header">
+		 			<h:outputText value="#{men.tituloPanelError}"/>
+				</f:facet>
+				
+				<a4j:outputPanel ajaxRendered="true">
+					<h:inputHidden id="mensajeErrorEnPagina" value="#{contactoBean.tieneMensajesError}" />
+				</a4j:outputPanel>
+				
+				<rich:messages/>
+				
+				<a4j:outputPanel id="panelAceptar" layout="block">
+		 			<div align="center" style="margin-top:20px;">
+						<a4j:commandButton id="botonAceptar" value="#{men.general_aceptar}" status="generalStatus" />
+						<rich:componentControl for="panelError" attachTo="botonAceptar" operation="hide" event="onclick" />
+					</div>
+				</a4j:outputPanel>
+			</rich:popupPanel>
+		</body>
+	</html>  
+</ui:composition>
