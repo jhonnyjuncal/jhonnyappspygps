@@ -1,0 +1,393 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:rich="http://richfaces.org/rich">
+	
+	<html xml:lang="es" lang="es">
+		<head>
+			<title>ROUTING - GPS</title>
+			<meta http-equiv="Cache-Control" content="max-age=0" />
+			<meta http-equiv="Expires" content="-1" />
+			<meta content="text/html; charset=UTF-8" http-equiv="content-type" name="tipo_contenido" /> 
+			<link href="#{facesContext.externalContext.requestContextPath}/images/favicon.ico" rel="shortcut icon"/>
+			<link href="../css/estilos.css" rel="stylesheet" type="text/css" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/funciones.js" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/md5.js" />
+			<script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/js/prototype.js" />
+			<script type="text/javascript">
+				Event.observe(window, 'load', function(){MM_preloadImages('../images/but_1_act.jpg','../images/but_2_act.jpg','../images/but_3_act.jpg',
+						'../images/but_4_act.jpg','../images/but_5_act.jpg','../images/but_6_act.jpg');});
+			</script>
+		</head>
+	
+		<body id="page1">
+			<h:form id="formularioRegistro" onsubmit="return validateForm(this)" ajaxSubmit="true">
+				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
+				<ui:include src="../pages/plantillas/progress.xhtml" />
+				<table style="height:700px;">
+					<tr>
+						<td id="row1" align="center">
+							<table style="width:766px;">
+								<tr>
+									<td id="header">
+										<table>
+											<tr>
+												<td class="row1">
+													<table class="auto">
+														<tr>
+															<td class="c1"></td>
+															<td class="c2">
+																<span class="date">
+																	<h:outputText value="#{principalBean.fechaActual}" />
+																</span>
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+											<tr>
+												<td class="row2">
+													<table class="auto">
+														<tr>
+															<td>
+																<a href="#">
+																	<img alt="" src="../images/logo.jpg" style="margin: 35px 40px 0 64px;" />
+																</a>
+															</td>
+															<td>
+																<img alt="" src="../images/slogan.jpg" style="margin:58px 0 0 0;" />
+															</td>
+														</tr>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+								<tr>
+									<td id="header_menu">
+										<table>
+											<tr>
+												<td class="c1"></td>
+												<td class="c2">
+													<!-- NAVEGA INICIO -->
+													<a4j:commandLink action="#{registroBean.navegaInicio}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_1','','../images/but_1_act.jpg',1)" status="generalStatus">
+														<img alt="" src="../images/but_1.jpg" name="r_1" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA PRODUCTOS -->
+													<a4j:commandLink action="#{registroBean.navegaProductos}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_2','','../images/but_2_act.jpg',1)" status="generalStatus">
+														<img alt="" src="../images/but_2.jpg" name="r_2" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA CUENTA -->
+													<a4j:commandLink action="#{registroBean.navegaCuenta}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_3','','../images/but_3_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario != null}" status="generalStatus">
+														<img alt="" src="../images/but_3.jpg" name="r_3" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink id="linkCuentaNo" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_3','','../images/but_3_act.jpg',1)" status="generalStatus"
+																rendered="#{usuarioBean.usuario == null}" actionListener="#{registroBean.muestraMensajeLoginNecesario}" oncomplete="showPanelMensajeError()">
+														<img alt="" src="../images/but_3.jpg" name="r_3" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA MAPA -->
+													<a4j:commandLink action="#{registroBean.navegaMapa}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_4','','../images/but_4_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario != null}" status="generalStatus">
+														<img alt="" src="../images/but_4.jpg" name="r_4" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													<a4j:commandLink id="linkMapaNo" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_4','','../images/but_4_act.jpg',1)" 
+																rendered="#{usuarioBean.usuario == null}" actionListener="#{registroBean.muestraMensajeLoginNecesario}" oncomplete="showPanelMensajeError()">
+														<img alt="" src="../images/but_4.jpg" name="r_4" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA CONTACTO -->
+													<a4j:commandLink action="#{registroBean.navegaContacto}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_5','','../images/but_5_act.jpg',1)" status="generalStatus">
+														<img alt=""  src="../images/but_5.jpg" name="r_5" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+													
+													<!-- NAVEGA ENLACES -->
+													<a4j:commandLink action="#{registroBean.navegaEnlaces}" onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('r_6','','../images/but_6_act.jpg',1)" status="generalStatus">
+														<img  alt="" src="../images/but_6.jpg" name="r_6" width="95" height="66" border="0" style="float:left;" />
+													</a4j:commandLink>
+												</td>
+												<td class="c3"></td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td id="row2" align="center">
+							<table style="width:766px;" align="center">
+								<tr>
+									<td id="content">
+										<table class="auto">
+											<tr>
+												<td class="col1">
+													<fieldset style="padding:5px; width:100%;">
+														<ul>
+															<li style="width:100%;" >
+																<ul>
+																	<li style="width:100%; float:left;">
+																		<h:outputText value="#{men.registro_titulo_datos}" style="font-color:blue; "/>
+																	</li>
+																	<li style="width:100%; float:left">
+																		<rich:separator align="center" width="100%" height="3px" style="margin:0 0 10px 0;"/>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;" >
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_nombre_usuario}" /></label>
+																	</li>
+																	<li>
+																		<h:inputText style="margin-left:5px; width:220px" value="#{registroBean.datos.nombreUsuario}" />
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_password1}" /></label>
+																	</li>
+																	<li>
+																		<h:inputSecret id="contra1" style="margin-left:5px; width:120px" />
+																		<h:inputHidden id="encrPassw1" value="#{registroBean.datos.password}"/>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_password2}" /></label>
+																	</li>
+																	<li>
+																		<h:inputSecret id="contra2" style="margin-left:5px; width:120px" />
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:20px 0 0 0;" >
+																<ul>
+																	<li style="width:100%; float:left;">
+																		<h:outputText value="#{men.registro_titulo_personales}" style="font-color:blue; "/>
+																	</li>
+																	<li style="width:100%; float:left">
+																		<rich:separator align="center" width="100%" height="3px" style="margin:0 0 10px 0;"/>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_datos_sexo}" /></label>
+																	</li>
+																	<li style="width:270px; float:left; height:20px">
+																		<h:outputText value="hombre: " style="float:left; margin: 0 0 0 5px" />
+																		<h:selectBooleanCheckbox style="float:left; margin-left:5px" value="#{registroBean.datos.sexo_hombre}" >
+																			<a4j:support id="sbh" event="onclick" oncomplete="selecionaHombre()" />
+																		</h:selectBooleanCheckbox>
+																		<h:outputText value="mujer: " style="float:left; margin: 0 0 0 30px" />
+																		<h:selectBooleanCheckbox style="float:left; margin-left:5px" value="#{registroBean.datos.sexo_mujer}" >
+																			<a4j:support id="sbm" event="onclick" oncomplete="selecionaMujer()" />
+																		</h:selectBooleanCheckbox>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_nombre_personal}" /></label>
+																	</li>
+																	<li>
+																		<h:inputText style="margin-left:5px; width:220px" value="#{registroBean.datos.nombre}"/>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_apellidos_personal}" /></label>
+																	</li>
+																	<li>
+																		<h:inputText style="margin-left:5px; width:220px" value="#{registroBean.datos.apellidos}" />
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_direccion_personal}" /></label>
+																	</li>
+																	<li>
+																		<h:inputText style="margin-left:5px; width:220px" value="#{registroBean.datos.direccion}" />
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_codigo_postal}" /></label>
+																	</li>
+																	<li>
+																		<h:inputText style="margin-left:5px; width:70px" value="#{registroBean.datos.codigoPostal}" />
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_pais}" /></label>
+																	</li>
+																	<li style="margin-left:135px;">
+																		<h:selectOneMenu value="#{registroBean.datos.idPais}" style="width:205px">
+							  												<f:selectItems value="#{registroBean.listaPaises}" />
+																		</h:selectOneMenu>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_telefono_personal}" /></label>
+																	</li>
+																	<li>
+																		<h:inputText style="margin-left:5px; width:220px" value="#{registroBean.datos.telefono}"/>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:20px 0 0 0;" >
+																<ul>
+																	<li>
+																		<h:outputText value="#{men.registro_titulo_configuracion}" style="font-color:blue; "/>
+																	</li>
+																	<li style="width:100%; float:left">
+																		<rich:separator align="center" width="100%" height="3px" style="margin:0 0 10px 0;"/>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:100%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_idioma_preferido}" /></label>
+																	</li>
+																	<li>
+																		<h:selectOneMenu value="#{registroBean.datos.idIdioma}" style="width:205px; float:left" >
+							  												<f:selectItems value="#{registroBean.listaIdiomas}" />
+																		</h:selectOneMenu>
+																	</li>
+																</ul>
+															</li>
+															<li style="width:95%; margin:3px 0 3px 10px;">
+																<ul>
+																	<li style="width:130px; float:left;">
+																		<label><h:outputText value="#{men.registro_notificaciones}" /></label>
+																	</li>
+																	<li style="float:left">
+																		<h:selectBooleanCheckbox style="margin:2px 0 0 5px" value="#{registroBean.datos.notificaciones}" />
+																	</li>
+																</ul>
+															</li>
+															<li style="border:20px 20px 20px 20px; ">
+																<a4j:outputPanel id="botonera" style="width:100%; float:left; ">
+																	<ul>
+																		<li style="width:100%; ">
+																			<div style="text-align:center; ">
+																				<a4j:commandButton id="botonGuardar" value="Guadar Datos" type="submit"
+																						style="margin:20px 0 20px" action="#{registroBean.navegaInicio}"  status="generalStatus"
+																						actionListener="#{registroBean.guardarDatos}" />
+																				<a4j:commandButton id="botonLimpiar" value="Limpiar Formulario"
+																						style="margin:20px 0 20px 20px"  status="generalStatus"
+																						immediate="true" actionListener="#{registroBean.limpiarDatos}" />
+																			</div>
+																		</li>
+																	</ul>
+																</a4j:outputPanel>
+															</li>
+														</ul>
+													</fieldset>
+													<div class="clear"></div>
+												</td>
+												<td class="col2">
+													<div style="height:400px; ">
+														<ul>
+															<li>
+																<h:outputText value="SpyGps nunca os solicitara los datos de acceso de ninguna forma" />
+															</li>
+															<li>
+																<h:outputText value="Utilice un password seguro para evitar accesos no deseados" />
+															</li>
+															<li>
+																<h:outputText value="Los datos introducidos no seran cedidos a terceros de ninguna de las maneras" />
+															</li>
+														</ul>
+				                             		</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td style="height:1px">
+							<img alt="" src="../images/spacer.gif" width="1" height="1" />
+						</td>
+					</tr>
+					<tr>
+						<td id="row3" align="center">
+							<table style="width:766px;" align="center">
+								<tr>
+									<td id="footer">
+										<table class="auto">
+											<tr>
+												<td class="c1">
+													<div style="margin:21px 172px 0 10px; width:350px">
+														<span class="date">JHONNY @2012 | </span> 
+														<a4j:commandLink action="#{registroBean.navegaPoliticas}" status="generalStatus"><h:outputText value="#{men.general_politicas}" /></a4j:commandLink>
+														<span> | </span>
+														<a4j:commandLink action="#{registroBean.navegaTerminos}" status="generalStatus"><h:outputText value="#{men.general_terminos}" /></a4j:commandLink>
+													</div>
+												</td>
+												<td class="c2">
+													<div style="margin:22px 51px 21px 38px;">
+														<img alt="" src="../images/phone.jpg" />
+													</div>
+												</td>
+											</tr>
+										</table>
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</h:form>
+			
+			<!-- MODALPANEL PARA LOS MENSAJES DE ERROR -->
+			<rich:popupPanel id="panelError" autosized="true" width="300" modal="true">
+				<f:facet name="header">
+		 					<h:outputText value="#{men.tituloPanelError}"/>
+				</f:facet>
+				
+				<a4j:outputPanel ajaxRendered="true">
+					<h:inputHidden id="mensajeErrorEnPagina" value="#{registroBean.tieneMensajesError}" />
+				</a4j:outputPanel>
+				
+				<rich:messages/>
+				
+				<a4j:outputPanel id="panelAceptar" layout="block">
+		 			<div align="center" style="margin-top:20px;">
+						<a4j:commandButton id="botonAceptar" value="#{men.general_aceptar}" status="generalStatus" />
+						<rich:componentControl for="panelError" attachTo="botonAceptar" operation="hide" event="onclick" />
+					</div>
+				</a4j:outputPanel>
+			</rich:popupPanel>
+		</body>
+	</html>  
+</ui:composition>
