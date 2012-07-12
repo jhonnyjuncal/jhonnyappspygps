@@ -1,9 +1,6 @@
 package es.jhonny.model.entity;
 
 import java.io.Serializable;
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
 import es.jhonny.spygps.util.Constantes;
 
 

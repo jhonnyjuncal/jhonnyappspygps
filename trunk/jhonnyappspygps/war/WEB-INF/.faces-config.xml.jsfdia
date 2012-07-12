@@ -7,13 +7,6 @@
     TARGET="rules:#pages#principal.xhtml" TITLE="pagina_inicio" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules::1" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="pagina_mapa::#pages#secure#mapa.xhtml"
-    NAME="output" PATH="/pages/secure/mapa.xhtml"
-    TARGET="rules:#pages#secure#mapa.xhtml" TITLE="pagina_mapa" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules::2" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
   <PROCESS-ITEM ID="rules::2" NAME="item" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="pagina_cuenta::#pages#secure#cuenta.xhtml"
@@ -90,4 +83,11 @@
   PATH="/pages/secure/cuenta.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
  <PROCESS-ITEM NAME="rules:#pages#login.xhtml" PATH="/pages/login.xhtml"
   SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules::1" SHAPE="32,1137,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules::1" NAME="item" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="pagina_mapa::#pages#secure#mapa.xhtml"
+    NAME="output" PATH="/pages/secure/mapa.xhtml"
+    TARGET="rules:#pages#secure#mapa.xhtml" TITLE="pagina_mapa" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>
