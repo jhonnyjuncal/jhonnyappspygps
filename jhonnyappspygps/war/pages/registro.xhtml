@@ -6,7 +6,7 @@
       xmlns:rich="http://richfaces.org/rich">
 	
 	<html xml:lang="es" lang="es">
-		<head>
+		<h:head>
 			<title>ROUTING - GPS</title>
 			<meta http-equiv="Cache-Control" content="max-age=0" />
 			<meta http-equiv="Expires" content="-1" />
@@ -20,9 +20,9 @@
 				Event.observe(window, 'load', function(){MM_preloadImages('../images/but_1_act.jpg','../images/but_2_act.jpg','../images/but_3_act.jpg',
 						'../images/but_4_act.jpg','../images/but_5_act.jpg','../images/but_6_act.jpg');});
 			</script>
-		</head>
+		</h:head>
 	
-		<body id="page1">
+		<h:body id="page1">
 			<h:form id="formularioRegistro" onsubmit="return validateForm(this)" ajaxSubmit="true">
 				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
 				<ui:include src="../pages/plantillas/progress.xhtml" />
@@ -388,6 +388,6 @@
 					</div>
 				</a4j:outputPanel>
 			</rich:popupPanel>
-		</body>
+		</h:body>
 	</html>  
 </ui:composition>

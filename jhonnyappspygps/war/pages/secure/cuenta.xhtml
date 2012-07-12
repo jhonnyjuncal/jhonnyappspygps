@@ -6,7 +6,7 @@
       xmlns:rich="http://richfaces.org/rich">
 	
 	<html xml:lang="es" lang="es">
-		<head>
+		<h:head>
 			<title>ROUTING - GPS</title>
 			<meta http-equiv="Cache-Control" content="max-age=0" />
 			<meta http-equiv="Expires" content="-1" />
@@ -19,9 +19,9 @@
 				Event.observe(window, 'load', function(){MM_preloadImages('../../../images/but_1_act.jpg','../../../images/but_2_act.jpg','../../../images/but_3_act.jpg',
 						'../../../images/but_4_act.jpg','../../../images/but_5_act.jpg','../../../images/but_6_act.jpg');});
 			</script>
-		</head>
+		</h:head>
 		
-		<body id="page1">
+		<h:body id="page1">
 			<a4j:loadBundle basename="textos" var="men"/>
 			<a4j:keepAlive beanName="cuentaBean" ajaxOnly="true" />
 			
@@ -388,6 +388,6 @@
 					</tr>
 				</table>
 			</a4j:form>
-		</body>
+		</h:body>
 	</html>  
 </ui:composition>

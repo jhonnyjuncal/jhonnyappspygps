@@ -2,14 +2,12 @@ package es.jhonny.spygps.backingbean;
 
 import java.io.Serializable;
 import java.util.Iterator;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
 import org.joda.time.format.DateTimeFormatter;
-
 import es.jhonny.model.entity.Navegacion;
 import es.jhonny.spygps.util.MessageFactory;
 import es.jhonny.spygps.util.Validaciones;
