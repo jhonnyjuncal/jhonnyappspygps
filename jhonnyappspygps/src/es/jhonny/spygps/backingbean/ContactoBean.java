@@ -82,7 +82,7 @@ public class ContactoBean extends Navegacion implements Serializable{
 			enBlanco.setLabel("");
 			tiposCorreo.add(enBlanco);
 			
-			try{				
+			try{
 				tiposCorreo.addAll(contactoService.getListaCorreos());
 			}catch(Exception e){
 				e.printStackTrace();
