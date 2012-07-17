@@ -22,7 +22,8 @@
 		</h:head>
 	
 		<h:body id="page3">
-			<h:form id="formularioEnlaces" ajaxSubmit="true">
+			<h:form id="formularioEnlaces">
+				<f:loadBundle basename="textos" var="men" />
 				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
 				<ui:include src="../pages/plantillas/progress.xhtml" />
 				<table style="height:700px;">

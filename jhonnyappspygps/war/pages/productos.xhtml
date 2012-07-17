@@ -22,10 +22,10 @@
 		</h:head>
 	
 		<h:body id="page4">
-			<h:form id="formularioProductos" ajaxSubmit="true">
+			<h:form id="formularioProductos">
+				<f:loadBundle basename="textos" var="men" />
 				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
 				<ui:include src="../pages/plantillas/progress.xhtml" />
-				
 				<table style="height: 700px;">
 					<tbody>
 						<tr>

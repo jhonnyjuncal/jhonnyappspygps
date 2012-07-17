@@ -22,7 +22,8 @@
 		</h:head>
 	
 		<h:body id="page1">
-			<h:form id="formularioContacto" ajaxSubmit="true">
+			<h:form id="formularioContacto">
+				<f:loadBundle basename="textos" var="men" />
 				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
 				<ui:include src="../pages/plantillas/progress.xhtml" />
 				<table style="height:700px;">
@@ -41,12 +42,15 @@
 																<h:outputText value="#{contactoBean.fechaActual}" />
 															</td>
 															<td class="c3">
-																<a4j:commandLink value="#{men.principal_login_usuario}" rendered="#{usuarioBean.usuario == null}" 
-																			action="#{contactoBean.navegaLogin}" status="generalStatus" />
-																<a4j:commandLink value="#{usuarioBean.usuario.nombreUsuario}" rendered="#{usuarioBean.usuario != null}" 
-																			action="#{contactoBean.navegaCuenta}" status="generalStatus" />
-																<a4j:commandLink value="#{men.cerrar_sesion}" rendered="#{usuarioBean.usuario != null}" style="margin-left:10px; " 
-																			action="#{contactoBean.navegaInicio}" actionListener="#{contactoBean.cierraSesion}" status="generalStatus" />
+																<h:commandLink rendered="#{usuarioBean.usuario == null}" action="#{contactoBean.navegaLogin}">
+																	<h:outputText value="#{men.principal_login_usuario}" />
+																</h:commandLink>
+																<h:commandLink rendered="#{usuarioBean.usuario != null}" action="#{contactoBean.navegaCuenta}">
+																	<h:outputText value="#{usuarioBean.usuario.nombreUsuario}" />
+																</h:commandLink>
+																<h:commandLink rendered="#{usuarioBean.usuario != null}" style="margin-left:10px;" action="#{contactoBean.navegaInicio}" actionListener="#{contactoBean.cierraSesion}">
+																	<h:outputText value="#{men.cerrar_sesion}" />
+																</h:commandLink>
 															</td>
 														</tr>
 													</table>
