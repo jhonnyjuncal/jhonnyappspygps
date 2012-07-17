@@ -23,7 +23,8 @@
 		</h:head>
 	
 		<h:body id="page1">
-			<h:form id="formularioRegistro" onsubmit="return validateForm(this)" ajaxSubmit="true">
+			<h:form id="formularioRegistro" onsubmit="return validateForm(this)">
+				<f:loadBundle basename="textos" var="men" />
 				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
 				<ui:include src="../pages/plantillas/progress.xhtml" />
 				<table style="height:700px;">

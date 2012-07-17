@@ -22,10 +22,8 @@
 		</h:head>
 		
 		<h:body id="page1">
-			<a4j:loadBundle basename="textos" var="men"/>
-			<a4j:keepAlive beanName="cuentaBean" ajaxOnly="true" />
-			
-			<a4j:form id="formularioCuenta" ajaxSubmit="true" >
+			<a4j:form id="formularioCuenta">
+				<f:loadBundle basename="textos" var="men" />
 				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
 				<ui:include src="../../pages/plantillas/progress.xhtml" />
 				<table style="height:700px;">

@@ -28,7 +28,8 @@
 		</h:head>
 	
 		<h:body id="page1">
-			<h:form id="formularioMapa" ajaxSubmit="true">
+			<h:form id="formularioMapa">
+				<f:loadBundle basename="textos" var="men" />
 				<a4j:queue requestDelay="900" ignoreDupResponses="true" />
 				<ui:include src="../../pages/plantillas/progress.xhtml" />
 				<table style="height:700px;">
