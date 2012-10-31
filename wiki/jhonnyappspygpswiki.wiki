@@ -11,6 +11,6 @@ La aplicacion funciona casi del todo, aun falta modificar el comportamiento de l
 
 
 aplicacion creada por:
-JHONNY JUNCAL GONZALEZ
+*JHONNY JUNCAL GONZALEZ*
 Analista Programador Senior
 Galicia, España
