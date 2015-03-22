@@ -1,0 +1,1 @@
+Prueba de proyecto en jsf 2.0 con richfaces 4.2.2 en el entorno de google app engine
